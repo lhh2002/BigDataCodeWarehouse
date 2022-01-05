@@ -20,8 +20,67 @@
 ```
 
 ## 2.配置application文件（重点）
-具体配置可以参考`application.properties` 重点关注：<font size="4" color="red">spring.jpa.database-platform</font>
+具体配置可以参考[`application.properties`](https://github.com/lhh2002/BigDataCodeWarehouse/blob/main/SpringBootJPA/src/main/resources/application.properties) 重点关注：<font size="4" color="red">spring.jpa.database-platform</font>
 此参数用来使用JPA对数据操作的类 MySQL8+使用`org.hibernate.dialect.MySQL8Dialect`、MySQL5+使用`org.hibernate.dialect.MySQL5Dialect`
 
 ## 3.对表进行增删改查操作
 
+**新增数据**
+```java
+  @Test
+  void contestAdd() {
+        System.out.println("Pet add");
+        Pet pet = new Pet();
+        pet.setColor("红色");
+        pet.setName("小红");
+        petDao.save(pet);
+        System.out.println("Pet add  success");
+    }
+```
+**删除数据**
+```java
+ @Test
+    void contestDelete() {
+        petDao.deleteById(1);
+        System.out.println("delete 1 success");
+    }
+```
+**修改数据**
+```java
+    @Test
+    void contestUpdate() {
+        Pet pet = new Pet();
+        pet.setId(1);
+        pet.setColor("白色");
+        petDao.save(pet);
+        System.out.println("Update 1 success");
+    }
+```
+**查询数据**
+```java
+   @Test
+        // 使用Jpa 查询操作
+    void contestFind() {
+        // 根据主键查询
+        Optional<Pet> byId = petDao.findById(1);
+        Pet pet = byId.get();
+        System.out.println("根据主键查询 +++++ " + pet);
+        List<Pet> petDaoAll = petDao.findAll();
+        System.out.println("查询所有 +++++ " + petDaoAll);
+    }
+
+    @Test
+        // 使用自定义查询(需要遵循JPA的语法规范)
+    void contestFindByName() {
+        List<Pet> byName = petDao.findByName("小红");
+        System.out.println(byName);
+
+    }
+
+    @Test
+        //使用自定义SQL 查询
+    void contestFindQuery() {
+        List<Pet> byName = petDao.getByName("小红");
+        System.out.println(byName);
+    }
+```

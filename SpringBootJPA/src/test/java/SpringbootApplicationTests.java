@@ -62,4 +62,19 @@ public class SpringbootApplicationTests {
         List<Pet> byName = petDao.getByName("小红");
         System.out.println(byName);
     }
+
+    @Test
+    void contestDelete() {
+        petDao.deleteById(1);
+        System.out.println("delete 1 success");
+    }
+
+    @Test
+    void contestUpdate() {
+        Pet pet = new Pet();
+        pet.setId(1);
+        pet.setColor("白色");
+        petDao.save(pet);
+        System.out.println("Update 1 success");
+    }
 }
