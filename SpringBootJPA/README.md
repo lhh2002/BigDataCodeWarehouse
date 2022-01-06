@@ -100,5 +100,8 @@
 **对表进行增删改查**
 具体查看测试类：`SpringbootApplicationOneToMany`
 
+## 添加连接池
+
+使用 application.yml 文件对JPA 配置连接池 方式 http://127.0.0.1:8080/druid 查看连接池相关的配置信息
 
 
