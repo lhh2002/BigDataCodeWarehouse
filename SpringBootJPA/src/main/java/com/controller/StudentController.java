@@ -47,6 +47,22 @@ public class StudentController {
 
     }
 
+    @GetMapping("/studentName/{name}")
+    public ResponseEntity<PublicDto<Student>> getByName(@PathVariable("name") String name) {
+        System.out.println("传入的参数是====>" + name);
+        PublicDto<Student> student = null;
+        try {
+            student = studentService.findByName(name);
+            System.out.println("根据id返回的数据是" + name + "   ===>" + student);
+            return ResponseEntity.ok(student); // 获取数据成功
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+
+    }
+
     @GetMapping("/student1/{id}")
     public String getByid2(@PathVariable("id") Integer id) {
         System.out.println("传入的参数是====>" + id);

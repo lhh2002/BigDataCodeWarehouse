@@ -34,4 +34,14 @@ public class StudentServiceImpl implements StudentService {
         studentPublicDto.setMsg("success");
         return studentPublicDto;
     }
+
+    @Override
+    public PublicDto<Student> findByName(String name) {
+        PublicDto<Student> studentPublicDto = new PublicDto<>();
+        studentPublicDto.setCode(200);
+        studentPublicDto.setData(studentDao.findBySname(name) );
+        studentPublicDto.setTotal(studentPublicDto.getData().size());
+        studentPublicDto.setMsg("success");
+        return studentPublicDto;
+    }
 }

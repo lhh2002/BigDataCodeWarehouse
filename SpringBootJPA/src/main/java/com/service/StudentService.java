@@ -16,4 +16,6 @@ import org.springframework.stereotype.Service;
 public interface StudentService {
 
     PublicDto<Student> getID(int id);
+
+    PublicDto<Student> findByName(String  name);
 }
