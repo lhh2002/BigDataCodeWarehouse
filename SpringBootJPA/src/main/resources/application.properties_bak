@@ -28,3 +28,4 @@ spring.jpa.show-sql=true
 
 #指定了数据的类型：指定数据库引擎
 spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
+
