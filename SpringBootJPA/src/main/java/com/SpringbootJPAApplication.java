@@ -19,9 +19,9 @@ public class SpringbootJPAApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringbootJPAApplication.class, args);
     }
-    // 延迟session 会话时间
-    @Bean
-    public OpenEntityManagerInViewFilter openEntityManagerInViewFilter() {
-        return new OpenEntityManagerInViewFilter();
-    }
+//    // 延迟session 会话时间
+//    @Bean
+//    public OpenEntityManagerInViewFilter openEntityManagerInViewFilter() {
+//        return new OpenEntityManagerInViewFilter();
+//    }
 }

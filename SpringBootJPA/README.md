@@ -105,3 +105,10 @@
 使用 application.yml 文件对JPA 配置连接池 方式 http://127.0.0.1:8080/druid 查看连接池相关的配置信息
 
 
+## 常见异常 
+spring data jpa 双向绑定关系的一个错误 Cannot call sendError() after the response has been committed
+查询数据报错
+![image/Cannot call sendError.png](img_1.png)
+
+**这是双向关系的一个问题，因为它们互相引用，在反序列化时，Jackson在无限循环中运行**
+建议是增加`@JsonIgnore`关系的一端。

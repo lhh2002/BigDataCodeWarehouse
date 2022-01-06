@@ -1,5 +1,6 @@
 package com.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -18,14 +19,13 @@ import java.util.List;
 @EqualsAndHashCode(exclude= {"previous", "next"})
 public class Clazz {
     @Id
-
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 设置自增
     private int cid;
-//    @OneToMany(mappedBy = "clazz",fetch = FetchType.EAGER)
-    @OneToMany(mappedBy = "clazz")
+    @OneToMany(mappedBy = "clazz",fetch = FetchType.EAGER)
+//    @OneToMany(mappedBy = "clazz")
+    @JsonIgnore
     private List<Student> list;
     @Column
-
 
     private String cname;
 

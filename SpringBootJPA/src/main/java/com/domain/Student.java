@@ -1,5 +1,6 @@
 package com.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -22,6 +23,7 @@ public class Student {
     private String sname;
     @ManyToOne//表示多个学生有一个班级
     @JoinColumn(name = "cid") //指定了班级的外键，没有指定名称默认使用 clazz
+
     private Clazz clazz;
 
 }
