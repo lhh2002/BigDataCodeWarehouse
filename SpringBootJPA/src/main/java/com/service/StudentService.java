@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 /**
  * @author 大数据老哥
  * @version V1.0
- * @Package com.service
+ * @Package com.com.service
  * @File ：StudentService.java
  * @date 2022/1/6 13:51
  */

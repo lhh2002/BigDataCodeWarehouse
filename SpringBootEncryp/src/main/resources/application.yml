@@ -1,0 +1,10 @@
+server:
+  port: 9092
+spring:
+  # mysql 连接配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/encryp?serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
